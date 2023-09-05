@@ -5,6 +5,7 @@ from flask import render_template, request
 def index():
     return render_template('index.html')
 
+
 @app.route('/calculate', methods=['POST'])
 def calculate():
     # 食材のデータ
