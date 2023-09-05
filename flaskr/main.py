@@ -5,7 +5,6 @@ from flask import render_template, request
 def index():
     return render_template('index.html')
 
-
 @app.route('/calculate', methods=['POST'])
 def calculate():
     # 食材のデータ
@@ -148,8 +147,15 @@ def calculate():
                     if energy > max_energy and drink_recipe['num'] <= pot_size:
                         max_energy = energy
                         best_recipe = drink_recipe
+                        
+        if best_recipe:
+            comment = ""
+            cant = 1
+        else:
+            comment = "何も作れません"
+            cant = 2
 
-        return render_template('result.html', best_recipe=best_recipe)
+        return render_template('result.html', best_recipe=best_recipe, comment=comment, cant=cant)
     
     except ValueError:
         return '無効な入力です。整数を入力してください。'
