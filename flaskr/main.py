@@ -149,13 +149,11 @@ def calculate():
                         best_recipe = drink_recipe
                         
         if best_recipe:
-            comment = ""
             cant = 1
         else:
-            comment = "何も作れません"
             cant = 2
 
-        return render_template('result.html', best_recipe=best_recipe, comment=comment, cant=cant)
+        return render_template('result.html', best_recipe=best_recipe, cant=cant)
     
     except ValueError:
         return '無効な入力です。整数を入力してください。'
