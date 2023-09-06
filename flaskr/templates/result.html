@@ -13,8 +13,10 @@
                 <p>{{ best_recipe.ingredients }}</p>
             <h2>初期エナジー</h2>
                 <p>{{ best_recipe.energy }}</p>
+                <p>{{ best_recipe }}</p>
         {% else %}
             <p>何も作れません</p>
+            <p>{{ best_recipe }}</p>
         {% endif %}
 </body>
 </html>
