@@ -150,10 +150,11 @@ def calculate():
                         
         if best_recipe:
             cant = 1
+            num_ingredients = len(best_recipe['ingredients'])
         else:
             cant = 2
 
-        return render_template('result.html', best_recipe=best_recipe, cant=cant)
+        return render_template('result.html', best_recipe=best_recipe, cant=cant, num_ingredients=num_ingredients)
     
     except ValueError:
         return '無効な入力です。整数を入力してください。'
