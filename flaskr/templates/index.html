@@ -1,81 +1,82 @@
 <!DOCTYPE html>
 <html lang="ja">
-    <head>
-        <meta charset="UTF-8">
-        <title>最適レシピ計算</title>
-        <link rel="stylesheet" href="css/style.css">
-    </head>
-    <body>
-        <h1>最適レシピ計算機</h1>
-        <h2>食材の数と種類から最適なレシピを提案します</h2>
-        <h3>鍋の大きさを入力してください</h3>
-        <form method="POST" action="/calculate">
-            <label for="negi">鍋に入れられる食材の数はいくつですか？:</label>
-            <input type="number" id="pot_size" name="pot_size" value="21" required><br>
+<head>
+    <meta charset="UTF-8">
+    <title>最適レシピ計算</title>
+    <!-- <link rel="stylesheet" href="../static/css/style.css"> -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <h1>最適レシピ計算機</h1>
+    <h2>食材の数と種類から最適なレシピを提案します</h2>
+    <h3>鍋の大きさを入力してください</h3>
+    <form method="POST" action="/calculate">
+        <label for="negi">鍋に入れられる食材の数はいくつですか？:</label>
+        <input type="number" id="pot_size" name="pot_size" value="21" required><br>
 
-        <h3>料理の種類を選んでください</h3>
-            <div>
-                <label for="curry">カレー・シチュー</label>
-                <input type="radio" name="variety" id="curry", value="1" required>
-            </div>
-            <div>
-                <label for="salad">サラダ</label>
-                <input type="radio" name="variety" id="salad" value="2" required>
-            </div>
-            <div>
-                <label for="drink">デザート・ドリンク</label>
-                <input type="radio" name="variety" id="drink" value="3" required>
-            </div>
+    <h3>料理の種類を選んでください</h3>
+        <div>
+            <label for="curry">カレー・シチュー</label>
+            <input type="radio" name="variety" id="curry", value="1" required>
+        </div>
+        <div>
+            <label for="salad">サラダ</label>
+            <input type="radio" name="variety" id="salad" value="2" required>
+        </div>
+        <div>
+            <label for="drink">デザート・ドリンク</label>
+            <input type="radio" name="variety" id="drink" value="3" required>
+        </div>
 
-        <h3>いま持っている食材の種類と個数を記入してください</h3>
-            <label for="negi">ふといながねぎ:</label>
-            <input type="number" id="negi" name="negi"><br>
-            
-            <label for="kinoko">あじわいキノコ:</label>
-            <input type="number" id="kinoko" name="kinoko"><br>
-            
-            <label for="egg">とくせんエッグ:</label>
-            <input type="number" id="egg" name="egg"><br>
-            
-            <label for="potato">ほっこりポテト:</label>
-            <input type="number" id="potato" name="potato"><br>
+    <h3>いま持っている食材の種類と個数を記入してください</h3>
+        <label for="negi">ふといながねぎ:</label>
+        <input type="number" id="negi" name="negi"><br>
+        
+        <label for="kinoko">あじわいキノコ:</label>
+        <input type="number" id="kinoko" name="kinoko"><br>
+        
+        <label for="egg">とくせんエッグ:</label>
+        <input type="number" id="egg" name="egg"><br>
+        
+        <label for="potato">ほっこりポテト:</label>
+        <input type="number" id="potato" name="potato"><br>
 
-            <label for="apple">とくせんリンゴ:</label>
-            <input type="number" id="apple" name="apple"><br>
+        <label for="apple">とくせんリンゴ:</label>
+        <input type="number" id="apple" name="apple"><br>
 
-            <label for="herb">げきからハーブ:</label>
-            <input type="number" id="herb" name="herb"><br>
+        <label for="herb">げきからハーブ:</label>
+        <input type="number" id="herb" name="herb"><br>
 
-            <label for="meet">マメミート:</label>
-            <input type="number" id="meet" name="meet"><br>
+        <label for="meet">マメミート:</label>
+        <input type="number" id="meet" name="meet"><br>
 
-            <label for="milk">モーモーミルク:</label>
-            <input type="number" id="milk" name="milk"><br>
+        <label for="milk">モーモーミルク:</label>
+        <input type="number" id="milk" name="milk"><br>
 
-            <label for="mitsu">あまいミツ:</label>
-            <input type="number" id="mitsu" name="mitsu"><br>
+        <label for="mitsu">あまいミツ:</label>
+        <input type="number" id="mitsu" name="mitsu"><br>
 
-            <label for="oil">ピュアなオイル:</label>
-            <input type="number" id="oil" name="oil"><br>
+        <label for="oil">ピュアなオイル:</label>
+        <input type="number" id="oil" name="oil"><br>
 
-            <label for="ginger">あったかジンジャー:</label>
-            <input type="number" id="ginger" name="ginger"><br>
+        <label for="ginger">あったかジンジャー:</label>
+        <input type="number" id="ginger" name="ginger"><br>
 
-            <label for="tomato">あんみんトマト:</label>
-            <input type="number" id="tomato" name="tomato"><br>
+        <label for="tomato">あんみんトマト:</label>
+        <input type="number" id="tomato" name="tomato"><br>
 
-            <label for="cacao">リラックスカカオ:</label>
-            <input type="number" id="cacao" name="cacao"><br>
+        <label for="cacao">リラックスカカオ:</label>
+        <input type="number" id="cacao" name="cacao"><br>
 
-            <label for="tail">おいしいシッポ:</label>
-            <input type="number" id="tail" name="tail"><br>
+        <label for="tail">おいしいシッポ:</label>
+        <input type="number" id="tail" name="tail"><br>
 
-            <label for="beans">ワカクサ大豆:</label>
-            <input type="number" id="beans" name="beans"><br>
+        <label for="beans">ワカクサ大豆:</label>
+        <input type="number" id="beans" name="beans"><br>
 
-            <h4>持っていないものは空欄でも良いです</h4>
+        <h4>持っていないものは空欄でも良いです</h4>
 
-            <button type="submit">計算</button>
-        </form>
-    </body>
+        <button type="submit">計算</button>
+    </form>
+</body>
 </html>
