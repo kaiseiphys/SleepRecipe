@@ -8,12 +8,19 @@
     <h1>計算結果</h1>
         {% if cant == 1 %}
             <h2>以下の料理を作りましょう！</h2>
-                <p>{{ best_recipe.dish }}</p>
+                <ul>
+                    <li>{{ best_recipe.dish }}</li>
+                </ul>
             <h2>必要な食材</h2>
-                <p>{{ best_recipe.ingredients }}</p>
+                <ul>
+                    {% for ingredient, count in best_recipe['ingredients'].items() %}
+                        <li>{{ ingredient }}: {{ count }}</li>
+                    {% endfor %}
+                </ul>
             <h2>初期エナジー</h2>
-                <p>{{ best_recipe.energy }}</p>
-                <p>{{ num_ingredients }}</p>
+                <ul>
+                    <li>{{ best_recipe.energy }}</li>
+                </ul>
         {% else %}
             <p>何も作れません</p>
         {% endif %}
