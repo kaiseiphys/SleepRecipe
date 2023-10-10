@@ -1,0 +1,22 @@
+Documents/Programing/pokemonsleep/env
+で、
+source env/bin/activate
+とすると、仮想環境に入れる。
+
+環境変数を指定
+Mac(Bash)
+export FLASK_APP=flaskr
+export FLASK_DEV=developement
+
+Win(CMD)
+set FLASK_APP=flaskr
+set FLASK_DEV=developement
+
+Win(PowerShell)
+$env:FLASK_APP="flaskr"
+$env:FLASK_DEV="developement"
+
+そのあと、
+Documents/Programing/pokemonsleep/sleeprecipe
+で、
+flask run
