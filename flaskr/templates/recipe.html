@@ -2,13 +2,37 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>最適レシピ計算</title>
+    <title>レシピ一覧</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
-<body>
-    <h3>
-        制作中
-    </h3>
-</body>
+    
+    <body>
+        <button id="button1">ボタン1</button>
+        <button id="button2">ボタン2</button>
+        <button id="button3">ボタン3</button>
+        <p id="comment">ここにコメントが表示されます。</p>
+    
+        <script>
+            // HTML要素をJavaScript変数に割り当てます
+            const button1 = document.getElementById("button1");
+            const button2 = document.getElementById("button2");
+            const button3 = document.getElementById("button3");
+            const comment = document.getElementById("comment");
+    
+            // ボタンがクリックされたときの処理を設定します
+            button1.addEventListener("click", function() {
+                comment.textContent = "ボタン1が押されました。これはコメント1です。";
+            });
+    
+            button2.addEventListener("click", function() {
+                comment.textContent = "ボタン2が押されました。これはコメント2です。";
+            });
+    
+            button3.addEventListener("click", function() {
+                comment.textContent = "ボタン3が押されました。これはコメント3です。";
+            });
+        </script>
+    </body>
+</html>
+
 </html>
