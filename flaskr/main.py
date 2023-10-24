@@ -4,6 +4,10 @@ from flask import render_template, request
 @app.route('/')
 def index():
     return render_template('index.html')
+
+@app.route('/recipe')
+def recipe():
+    return render_template('recipe.html')
  
 @app.route('/calculate', methods=['POST'])
 def calculate():
