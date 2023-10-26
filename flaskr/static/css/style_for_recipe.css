@@ -1,0 +1,54 @@
+@charset "UTF-8";
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+    height: 100vh;
+    margin: 0;
+}
+
+h1 {
+    text-align: center;
+    background-color: #333;
+    color: #fff;
+    padding: 10px 5px;
+    margin: 0;
+}
+
+h2 {
+    text-align: center;
+    background-color: #333;
+    color: #fff;
+    padding: 10px 10px;
+    margin: 0;
+}
+
+#button1, #button2, #button3, #table-container, #comment {
+    margin: 10px;
+}
+
+#button-container {
+    display: flex;
+    justify-content: center;
+}
+
+#button-container button {
+    margin: 10px;
+}
+
+table {
+    border-collapse: collapse; /* セルの境界を重ねて表示 */
+    width: 100%; /* テーブルの幅を100%に設定 */
+    max-width: 400px;
+}
+
+table, th, td {
+    border: 1px solid black; /* 枠線を1pxの実線で表示 */
+}
+
+th, td {
+    padding: 8px; /* セル内の余白を設定 */
+    text-align: center; /* セル内のテキストを中央揃え */
+}

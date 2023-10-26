@@ -3,36 +3,146 @@
 <head>
     <meta charset="UTF-8">
     <title>レシピ一覧</title>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style_for_recipe.css') }}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-    <body>
-        <button id="button1">ボタン1</button>
-        <button id="button2">ボタン2</button>
-        <button id="button3">ボタン3</button>
-        <p id="comment">ここにコメントが表示されます。</p>
-    
-        <script>
-            // HTML要素をJavaScript変数に割り当てます
-            const button1 = document.getElementById("button1");
-            const button2 = document.getElementById("button2");
-            const button3 = document.getElementById("button3");
-            const comment = document.getElementById("comment");
-    
-            // ボタンがクリックされたときの処理を設定します
-            button1.addEventListener("click", function() {
-                comment.textContent = "ボタン1が押されました。これはコメント1です。";
-            });
-    
-            button2.addEventListener("click", function() {
-                comment.textContent = "ボタン2が押されました。これはコメント2です。";
-            });
-    
-            button3.addEventListener("click", function() {
-                comment.textContent = "ボタン3が押されました。これはコメント3です。";
-            });
-        </script>
-    </body>
-</html>
+</head>
+<body>
+    <div id="button-container">
+        <!-- <h1>ポケモンスリープ</h1> -->
+        <!-- <h2>レシピ一覧</h2> -->
+        <button id="button1">カレー・シチュー</button>
+        <button id="button2">サラダ</button>
+        <button id="button3">デザート・ドリンク</button>
+    </div>
+    <p id="comment">料理の種類を選んでください</p>
+    <table id="image-table" style="display: none;"></table> <!-- テーブルを初めに非表示に設定 -->
 
+    <script>
+        // HTML要素をJavaScript変数に割り当てます
+        const button1 = document.getElementById("button1");
+        const button2 = document.getElementById("button2");
+        const button3 = document.getElementById("button3");
+        const comment = document.getElementById("comment");
+        const imageTable = document.getElementById("image-table");
+
+        // ボタンがクリックされたときの処理を設定します
+        button1.addEventListener("click", function() {
+            comment.textContent = "カレー・シチュー";
+            imageTable.style.display = "table"; // ボタンをクリックしたときにテーブルを表示
+            imageTable.innerHTML = ''; // テーブル内の古い内容をクリア
+
+            // テキストと画像を格納するデータの配列
+            const data = [
+                { text1: "カレーA", image: "image1.png", alt: "写真1", text2: "レシピA" },
+                { text1: "カレーB", image: "image2.png", alt: "写真2", text2: "レシピB" },
+                { text1: "カレーC", image: "image3.png", alt: "写真3", text2: "レシピC" },
+                { text1: "シチューA", image: "image4.png", alt: "写真4", text2: "レシピD" },
+                { text1: "シチューB", image: "image5.png", alt: "写真5", text2: "レシピE" },
+                { text1: "シチューC", image: "image6.png", alt: "写真6", text2: "レシピF" }
+            ];
+
+            // テーブルを生成
+            for (const item of data) {
+                const row = document.createElement("tr");
+
+                // テキスト1セル
+                const text1Cell = document.createElement("td");
+                text1Cell.textContent = item.text1;
+                row.appendChild(text1Cell);
+
+                // 画像セル
+                const imageCell = document.createElement("td");
+                const img = document.createElement("img");
+                img.src = item.image;
+                img.alt = item.alt;
+                imageCell.appendChild(img);
+                row.appendChild(imageCell);
+
+                // テキスト2セル
+                const text2Cell = document.createElement("td");
+                text2Cell.textContent = item.text2;
+                row.appendChild(text2Cell);
+
+                imageTable.appendChild(row);
+            }
+        });
+
+        button2.addEventListener("click", function() {
+            comment.textContent = "サラダ";
+            imageTable.style.display = "table"; // ボタンをクリックしたときにテーブルを表示
+            imageTable.innerHTML = ''; // テーブル内の古い内容をクリア
+
+            // テキストと画像を格納するデータの配列
+            const data = [
+                { text1: "サラダA", image: "image7.png", alt: "写真7", text2: "レシピA" },
+                { text1: "サラダB", image: "image8.png", alt: "写真8", text2: "レシピB" },
+                { text1: "サラダC", image: "image9.png", alt: "写真9", text2: "レシピC" },
+            ];
+
+            // テーブルを生成
+            for (const item of data) {
+                const row = document.createElement("tr");
+
+                // テキスト1セル
+                const text1Cell = document.createElement("td");
+                text1Cell.textContent = item.text1;
+                row.appendChild(text1Cell);
+
+                // 画像セル
+                const imageCell = document.createElement("td");
+                const img = document.createElement("img");
+                img.src = item.image;
+                img.alt = item.alt;
+                imageCell.appendChild(img);
+                row.appendChild(imageCell);
+
+                // テキスト2セル
+                const text2Cell = document.createElement("td");
+                text2Cell.textContent = item.text2;
+                row.appendChild(text2Cell);
+
+                imageTable.appendChild(row);
+            }
+        });
+
+        button3.addEventListener("click", function() {
+            comment.textContent = "デザート・ドリンク";
+            imageTable.style.display = "table"; // ボタンをクリックしたときにテーブルを表示
+            imageTable.innerHTML = ''; // テーブル内の古い内容をクリア
+
+            // テキストと画像を格納するデータの配列
+            const data = [
+                { text1: "デザートA", image: "image10.png", alt: "写真10", text2: "レシピA" },
+                { text1: "デザートB", image: "image11.png", alt: "写真11", text2: "レシピB" },
+                { text1: "ドリンクA", image: "image12.png", alt: "写真12", text2: "レシピC" },
+                { text1: "ドリンクB", image: "image13.png", alt: "写真13", text2: "レシピD" },
+            ];
+
+            // テーブルを生成
+            for (const item of data) {
+                const row = document.createElement("tr");
+
+                // テキスト1セル
+                const text1Cell = document.createElement("td");
+                text1Cell.textContent = item.text1;
+                row.appendChild(text1Cell);
+
+                // 画像セル
+                const imageCell = document.createElement("td");
+                const img = document.createElement("img");
+                img.src = item.image;
+                img.alt = item.alt;
+                imageCell.appendChild(img);
+                row.appendChild(imageCell);
+
+                // テキスト2セル
+                const text2Cell = document.createElement("td");
+                text2Cell.textContent = item.text2;
+                row.appendChild(text2Cell);
+
+                imageTable.appendChild(row);
+            }
+        });
+    </script>
+</body>
 </html>
